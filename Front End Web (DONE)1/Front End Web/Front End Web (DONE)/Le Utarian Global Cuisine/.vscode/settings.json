@@ -1,0 +1,6 @@
+{
+    "workbench.externalBrowser": "chrome",
+    "simpleBrowser.focusLockIndicator.enabled": false,
+    "editor.defaultFoldingRangeProvider": "vscode.html-language-features",
+    "liveServer.settings.port": 5501
+}

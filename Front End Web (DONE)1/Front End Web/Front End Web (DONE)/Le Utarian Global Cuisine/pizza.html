@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Italian : Pizza</title>
+   
+           <!-- GSAP 3.x -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+<!-- ScrollMagic 2.0.8 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script> <!-- Optional for debugging -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    
+        @import url("https://fonts.googleapis.com/css?family=Roboto:700");
+        @import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000000;
+            
+        }
+
+        h1 {
+            font-family: "Franklin Gothic Medium";
+            color: rgb(255, 255, 255);
+            font-size: 70px;
+            font-weight: lighter;
+            letter-spacing: -5px;
+            padding-top: 50px;
+            z-index: 999;
+            position: absolute;
+        }
+
+        p {
+            font-family: "Franklin Gothic Medium";
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 100;
+            z-index: 999;
+        }
+
+        .first-section{
+            width:100%;
+            height:150vh;
+            display:flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        .first-section .images-wrapper {
+            position:absolute;
+        }
+
+        .ingredient-images{
+            position: absolute;
+            width:400px;
+            left:calc(50%-400px);
+            height:530px;
+            top:420px;
+        }
+
+        .section_1_01{ position: absolute; top:20px; right:-150px; }
+        .section_1_02{ position: absolute; top:90px; right:-20px; }
+        .section_1_03{ position: absolute; top:110px; right:-150px; }
+        .section_1_04{ position: absolute; top:210px; right:-30px; }
+        .section_1_05{ position: absolute; top:235px; right:0px; }
+        .section_1_06{ position: absolute; top:180px; right:60px; }
+        .section_1_07{ position: absolute; top:260px; right:-140px; }
+        .section_1_08{ position: absolute; top:330px; right:-40px; }
+        .section_1_09{ position: absolute; top:380px; right:-140px; }
+
+                /* Container Overflow Setting */
+        .image-container {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .third-section h2 {
+            font-size: 56px;
+            margin-top: 100px;
+            color: #f59403;
+            text-align: center;
+            font-family: 'Matemasie';
+        }
+
+        .third-section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            
+        }
+
+        .third-section .images-wrapper {
+            margin-top: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+            
+        }
+
+        .third-section .images-wrapper img {
+            position: absolute;
+        }
+    
+    .gradient-make-pizza {
+    background: linear-gradient(to right, #fd8700, #f1d326);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 4.5s linear infinite;
+    font-size: 3rem;
+}
+
+.gradient-not-war {
+    background: linear-gradient(to left, #970014, #c73b3b);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 4.5s linear infinite;
+    font-size: 3rem;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+.animated-title {
+    position: absolute;
+    top: 20%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Ensures proper centering */
+    width: 100%;
+    text-align: center;
+    color: #222;
+    font-family: Roboto, Arial, sans-serif;
+    z-index: 10;
+}
+
+/* Keyframes for text animations */
+@keyframes showTopText {
+    0% {
+        transform: translate3d(0, 100%, 0);
+    }
+    40%, 60% {
+        transform: translate3d(0, 50%, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes showBottomText {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animated-title > div {
+    height: 50%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.animated-title > div div {
+    font-size: 12vmin;
+    padding: 2vmin 0;
+    position: relative;
+}
+
+.animated-title > div div span {
+    display: block;
+}
+
+.animated-title > div.text-top {
+    border-bottom: 1vmin solid #000;
+    top: 0;
+}
+
+.animated-title > div.text-top div {
+    animation: showTopText 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    bottom: 0;
+    transform: translate(0, 100%);
+}
+
+.animated-title > div.text-bottom {
+    bottom: 0;
+}
+
+.animated-title > div.text-bottom div {
+    animation: showBottomText 0.5s;
+    animation-delay: 1.75s;
+    animation-fill-mode: forwards;
+    top: 0;
+    transform: translate(0, -100%);
+}
+
+/* Heading styles */
+h1.animated-title {
+    margin: 0;
+    padding: 0;
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.animated-title span {
+    font-size: 7rem;
+}
+
+.fire {
+  margin: 50px auto;
+  width: 80%;
+  max-width: 1000px;
+  height: 200px;
+
+  background-position: center center;
+  background-size: 1000px 200px;
+  border-radius: 10px;
+  font-family: 'Akronim';
+  overflow: hidden;
+    text-align: center;
+  vertical-align: middle;
+
+}
+.fire:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.Toppings {
+  display: inline-block;
+  margin: 0;
+
+    color: rgb(255, 115, 0);
+    font-size: 160px;
+  line-height: 100px;
+  min-width: 50px;
+  outline: none;
+  vertical-align: middle;
+    
+  text-shadow:
+        0 3px 20px red,
+        0 0 20px red,
+    0 0 10px orange,
+    4px -5px 6px yellow,
+    -4px -10px 10px yellow,
+    0 -10px 30px yellow;
+  animation: 2s Toppings infinite alternate linear;
+}
+
+@keyframes Toppings {
+  0%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 0 10px orange,
+    0 0 0 yellow,
+    0 0 5px yellow,
+    -2px -5px 5px yellow,
+    4px -10px 10px yellow; }
+  25%   { text-shadow: 0 3px 20px red, 0 0 30px red,
+    0 0 20px orange,
+    0 0 5px yellow,
+    -2px -5px 5px yellow,
+    3px -10px 10px yellow,
+    -4px -15px 20px yellow; }
+  50%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 -5px 10px orange,
+    -2px -5px 5px yellow,
+    3px -10px 10px yellow,
+    -4px -15px 20px yellow,
+    2px -20px 30px rgba(255,255,0,0.5); }
+  75%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 -5px 10px orange,
+    3px -5px 5px yellow,
+    -4px -10px 10px yellow,
+    2px -20px 30px rgba(255,255,0,0.5),
+    0px -25px 40px rgba(255,255,0,0)}
+  100%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 0 10px orange,
+    0 0 0 yellow,
+    0 0 5px yellow,
+    -2px -5px 5px yellow,
+    4px -10px 10px yellow; }
+    
+}.ingredients-section {
+    background-color: #000;
+    padding: 20px;
+    color: #ffc403;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+}
+
+.ingredients-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700; /* Makes the text bold */
+    font-family: 'Source Serif 4', serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.ingredient-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 500px;
+    justify-content: flex-start;
+}
+
+.checkbox-wrapper-26 {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.checkbox-wrapper-26 input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-wrapper-26 label {
+    --size: 30px; /* Adjust size as needed */
+    --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+
+    position: relative;
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    background-color: #f72414;
+    border-radius: 50%;
+    box-shadow: 0 var(--shadow) #ffbeb8;
+    cursor: pointer;
+    transition: 0.2s ease transform, 0.2s ease background-color,
+      0.2s ease box-shadow;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.checkbox-wrapper-26 label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: calc(var(--size) * .7);
+    height: calc(var(--size) * .7);
+    margin: 0 auto;
+    background-color: #fff;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: inset 0 var(--shadow) #ffbeb8;
+    transition: 0.2s ease width, 0.2s ease height;
+}
+
+.checkbox-wrapper-26 label:hover:before {
+    width: calc(var(--size) * .55);
+    height: calc(var(--size) * .55);
+    box-shadow: inset 0 var(--shadow) #ff9d96;
+}
+
+.checkbox-wrapper-26 label:active {
+    transform: scale(0.9);
+}
+
+.checkbox-wrapper-26 .tick_mark {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: calc(var(--size) * -.05);
+    width: calc(var(--size) * .6);
+    height: calc(var(--size) * .6);
+    margin: 0 auto;
+    margin-left: calc(var(--size) * .14);
+    transform: rotateZ(-40deg);
+}
+
+.checkbox-wrapper-26 .tick_mark:before,
+.checkbox-wrapper-26 .tick_mark:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    border-radius: 2px;
+    opacity: 0;
+    transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+.checkbox-wrapper-26 .tick_mark:before {
+    left: 0;
+    bottom: 0;
+    width: calc(var(--size) * .1);
+    height: calc(var(--size) * .3);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+    transform: translateY(calc(var(--size) * -.68));
+}
+
+.checkbox-wrapper-26 .tick_mark:after {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(var(--size) * .1);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+    transform: translateX(calc(var(--size) * .78));
+}
+
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label {
+    background-color: #07d410;
+    box-shadow: 0 var(--shadow) #92ff97;
+}
+
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label:before {
+    width: 0;
+    height: 0;
+}
+
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:before,
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:after {
+    transform: translate(0);
+    opacity: 1;
+}
+
+.ingredient-item span {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-left: 10px;
+}
+/* Basic styling for the modal */
+.modal {
+  display: none; /* Hidden by default */
+  justify-content: center; /* Center modal content horizontally */
+  align-items: center; /* Center modal content vertically */
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  padding: 20px;
+  border: 3px solid #418349; /* Green border for the modal frame */
+  border-radius: 8px;
+  background: #FFFFE0; /* Pastel yellow background for the modal */
+  box-shadow: 8px 8px 0 rgb(191, 230, 240); /* Blue shadow effect */
+  text-align: center;
+}
+
+/* Container for modal content */
+.modal-content {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Styling for the message text */
+.message {
+  font-size: 1.3rem; /* Increased font size for the message */
+  margin-bottom: 1.6rem; /* Space between message and button */
+  color: black; /* Black text color */
+}
+
+/* Container for the button to ensure it's centered */
+.btn-container {
+  display: flex;
+  justify-content: center; /* Center button horizontally */
+  width: 100%; /* Ensure container takes full width */
+}
+
+/* Styling for the button */
+.btn {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background: #e7c3d0; /* Pastel pink background for the button */
+  padding: 0.3rem 3.4rem;
+  border: 3px solid black; /* Black border for the button */
+  box-shadow: 0 0 0 black; /* Black shadow effect */
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+/* Hover and active states for the button */
+.btn:hover {
+  box-shadow: 0.4rem 0.4rem 0 black; /* Black shadow on hover */
+  transform: translate(-0.4rem, -0.4rem);
+}
+
+.btn:active {
+  box-shadow: 0 0 0 rgb(11, 10, 63); /* Dark blue shadow when active */
+  transform: translate(0, 0);
+  form {
+  display: flex;
+  justify-content: center; /* Center the grid container horizontally */
+  padding: 20px; /* Optional: Add padding for better spacing */
+}
+}
+/* Center the form horizontally */
+form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 0; /* Remove default margin */
+}
+
+/* Container for grid layout */
+.ingredients-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  gap: 20px; /* Space between columns */
+  max-width: 1200px; /* Optional: Set a max-width */
+  width: 100%; /* Full width for responsiveness */
+}
+
+/* Style for each column */
+.ingredients-left, .ingredients-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for each ingredient item */
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Space between items */
+}
+
+/* Space between checkbox and label */
+.checkbox-wrapper-26 {
+  margin-right: 10px;
+}
+
+/* Optional: Style for tick mark if needed */
+.tick_mark {
+  /* Add styling for the tick mark */
+}
+/* Ensure proper spacing and layout */
+section {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Info box styling */
+.info-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width:750px;
+    width: 100%;
+    padding: 20px;
+    border: 3px solid #ffff00; /* Yellow border */
+    border-radius: 8px;
+    background-image: url(background_textbox.png); /* Replace with your image URL */
+     background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+    margin: 20px auto;
+    position: relative; /* Center horizontally and add margin from other sections */
+}
+
+/* Info column styling */
+.info-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-column h3 {
+    margin: 0;
+    font-size: 1.3rem; /* Increase font size */
+    color: #2e613a; /* Green color for headings */
+    font-weight: bold; /* Optional: Make text bold */
+}
+.info-column p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #666446; /* Slightly lighter text color */
+}
+.recipe-section {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 20px;
+    text-align: left;
+}
+
+h2 {
+    color: orange; /* Orange color for the header */
+    font-size: 2rem; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+
+.kneading-methods {
+    list-style-type: disc; /* Remove default bullets */
+    padding: 0 20px; /* Indent the bullets */
+    margin: 20px 0;
+    font-size: 1.2rem; /* Make text larger */
+}
+
+.kneading-methods li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.number-icon {
+    color: orange;
+    font-size: 1.5rem; /* Adjust size as needed */
+    margin-right: 10px;
+}
+   
+
+.dough-image {
+    width:200%;
+    max-width:600px; /* Adjust size as needed */
+    height: auto;
+    margin: 20px ;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+
+.flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do a horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if the image is missing) */
+.flip-box-front {
+    background-color:black;
+    color: black;
+}
+
+/* Style the back side */
+.flip-box-back {
+    background-color: black; /* Just a fallback color */
+    color:black(255, 255, 255, 0);
+    transform: rotateY(180deg);
+}
+.instructions {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin: 20px 0;
+}
+
+.instructions li, .sauce-methods li, .toppings-methods li , .baking-methods li{
+    font-size: 1.2em; /* Matching font size */
+    color: white; /* White text */
+    margin-bottom: 15px; /* Space after each point */
+    list-style: none; /* Remove default bullet */
+}
+/* Animation for the pizza sauce image */
+.pizza-sauce {
+  width: 600px; /* Adjust the width as needed */
+  opacity: 0;
+  transform: scale(0.8);
+  animation: sauceFadeIn 2s ease-in-out forwards;
+  margin-top: 20px; /* Add some space below the text */
+}
+@keyframes sauceFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.baking-image-container {
+    text-align: center; /* Center the image horizontally */
+    margin-top: 20px; /* Add space above the image */
+}
+
+.baking-image {
+    width: 100%; /* Make the image responsive to container width */
+    max-width: 600px; /* Set a maximum width for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for visual interest */
+}
+@media (max-width: 768px) {
+    .recipe-section {
+        font-size: 24px;
+    }
+
+    .video-description {
+        font-size: 16px;
+    }
+
+    .baking-image {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .wide-image {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Styles for mobile screens */
+@media (max-width: 480px) {
+    .recipe-section {
+        font-size: 20px;
+    }
+
+    .video-description {
+        font-size: 14px;
+    }
+
+    .baking-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .wide-image {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+}
+.container {
+            padding: 20px;
+        }
+        .feedback-section {
+            margin-top: 20px;
+            background-color: #f5f5f5;
+            border: 2px solid #f7e5b5;
+            border-radius: 5px;
+            padding: 15px;
+            color: black;
+        }
+        .feedback-section h4 {
+            margin-bottom: 10px;
+        }
+        .feedback-section input,
+        .feedback-section textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .feedback-section button {
+            background-color: #FF4500;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .feedback-section button:hover {
+            background-color: #FF6347;
+        }
+        .star-rating {
+            margin-top: 20px;
+            font-size: 2rem;
+            color: gray;
+        }
+        .fa-star.checked {
+            color: rgb(255, 174, 0);
+        }
+        .fa-star:hover,
+        .fa-star:hover ~ .fa-star {
+            color: rgb(255, 174, 0);
+        }
+        .footer {
+  position: relative;
+  width: 100%;
+  background: orange;
+  min-height: 50px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+footer.footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #000; /* Set background color to black or any desired color */
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer.footer .waves {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+footer.footer .wave {
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+}
+
+footer.footer .social-icon {
+  padding: 0;
+  margin: 0 0 20px 0;
+  list-style: none;
+}
+
+footer.footer .social-icon__item {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+footer.footer .social-icon__link {
+  color: #fff;
+  font-size: 24px;
+}
+
+.footer p {
+  color: #fff;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.footer {
+            width: 100%;
+            background-color: #e6c172;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .footer-content {
+            display: flex;
+            align-items: center;
+        }
+        .footer-content span {
+            margin-right: 10px;
+        }
+        .footer-content i {
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .footer-content i:hover {
+            color: #ccc;
+        }
+
+        .left-panel {
+    width: 200px;
+    padding: 20px;
+    background-color:black;
+    border-right: 2px solid black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+.rate-us h2 {
+    margin:-1px;
+    font-size: 1.5rem;
+}
+
+.star-rating {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.fa-star.checked {
+    color: rgb(255, 174, 0);
+}
+
+.fa-star:hover,
+.fa-star:hover ~ .fa-star {
+    color: rgb(255, 174, 0);
+}
+
+.visitor-count {
+    font-family: 'Source Serif 4', serif;
+    font-weight: normal; /* Ensure the text is not bold */
+    font-size: 2rem; /* Adjust the font size if needed */
+    color: white; /* Adjust the color if needed */
+}
+
+.visitor-count p {
+    margin: 0.5rem 0; /* Add some spacing between the lines */
+}
+
+
+.content {
+    margin-left: 250px; /* Adjust based on the width of the left panel */
+    padding: 20px;
+}
+    </style>
+</head>
+<body>
+    
+    
+    <section class="first-section">
+        <h1 class="animated-title">
+          <div class="text-top">
+            <div>
+              <span class="gradient-make-pizza">Make Pizza</span>
+            </div>
+          </div>
+          <div class="text-bottom">
+            <div>
+              <span class="gradient-not-war">Not War</span>
+            </div>
+          </div>
+        </h1>
+        <div class="images-wrapper">
+            <img class="section_1_bg" src="section_1_bg-Photoroom.webp" />
+            <div class="ingredient-images">
+                <img class="section_1_01" src="https://www.dropbox.com/s/atuvpzvo59wxeef/section_1_01.webp?raw=1" />
+                <img class="section_1_02" src="https://www.dropbox.com/s/7mvrx106israo1z/section_1_02.webp?raw=1" />
+                <img class="section_1_03" src="https://www.dropbox.com/s/oewc2bioujvzlp7/section_1_03.webp?raw=1" />
+                <img class="section_1_04" src="https://www.dropbox.com/s/bxezwiwtnkx1cw0/section_1_04.webp?raw=1" />
+                <img class="section_1_05" src="https://www.dropbox.com/s/bftnm0v5j33uv9c/section_1_05.webp?raw=1" />
+                <img class="section_1_06" src="https://www.dropbox.com/s/hz9jbiak3laqrqp/section_1_06.webp?raw=1" />
+                <img class="section_1_07" src="https://www.dropbox.com/s/jdlxt8xxdrquh9a/section_1_07.webp?raw=1" />
+                <img class="section_1_08" src="https://www.dropbox.com/s/s41b0ualql6b74d/section_1_08.webp?raw=1" />
+                <img class="section_1_09" src="https://www.dropbox.com/s/luxhm5e7e57t7ac/section_1_09.webp?raw=1" />
+            </div>
+        </div>
+    </section>
+    <div class="third-section">
+        <div class="dark fire">
+            <h2 class="Toppings">T o p p i n g s ?</h2>
+      </div>
+        <div class="images-wrapper">
+            <img class="section_3_01" src="section_3_01.jpg" style="transform: translate(0px, 0px);" />
+            <img class="section_3_02" src="section_3_02.jpg" style="transform: translate(0px, 0px);" />
+            <img class="section_3_03" src="section_3_03.jpg" style="transform: translate(0px, 0px);" />
+            <img class="section_3_04" src="section_3_04.jpg" style="transform: translate(0px, 0px);" />
+            <img class="section_3_05" src="section_3_05.jpg" style="transform: translate(0px, 0px);" />
+            <img class="section_3_06" src="section_3_06.jpg" style="transform: translate(0px, 0px);" />
+        </div>
+        
+    </div>
+    <section class="info-section">
+    <div class="info-box">
+        <div class="info-column">
+            <h3>Prep Time</h3>
+            <p>30 mins</p>
+            <h3>Cook Time</h3>
+            <p>30 mins</p>
+        </div>
+        <div class="info-column">
+            <h3>Rise Time</h3>
+            <p>90 mins</p>
+            <h3>Total Time</h3>
+            <p>2 hrs 30 mins</p>
+        </div>
+        <div class="info-column">
+            <h3>Servings</h3>
+            <p>4 to 6 servings</p>
+        </div>
+        <div class="info-column">
+            <h3>Yield</h3>
+            <p>2 10-inch pizzas</p>
+            
+        </div>
+    </section>
+    <section class="ingredients-section">
+        <h2>Ingredients of Pizza</h2>
+        <form>
+            <div class="ingredients-container">
+                <div class="ingredients-left">
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="flour" class="ingredient">
+                            <label for="flour">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>2 cup all purpose flour</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="ketchup" class="ingredient">
+                            <label for="ketchup">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>100 ml tomato ketchup</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="tomato" class="ingredient">
+                            <label for="tomato">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1 tomato</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="onion" class="ingredient">
+                            <label for="onion">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>2 onion</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="chilli-flakes" class="ingredient">
+                            <label for="chilli-flakes">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1 teaspoon chilli flakes</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="baking-powder" class="ingredient">
+                            <label for="baking-powder">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1 teaspoon baking powder</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="sugar" class="ingredient">
+                            <label for="sugar">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1 teaspoon sugar</span>
+                    </div>
+                </div>
+                <div class="ingredients-right">
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="olive-oil" class="ingredient">
+                            <label for="olive-oil">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>2 teaspoon virgin olive oil</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="processed-cheese" class="ingredient">
+                            <label for="processed-cheese">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>100 gm processed cheese</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="mushroom" class="ingredient">
+                            <label for="mushroom">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>4 mushroom</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="capsicum" class="ingredient">
+                            <label for="capsicum">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1/2 capsicum (green pepper)</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="oregano" class="ingredient">
+                            <label for="oregano">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1 teaspoon oregano</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="mozzarella" class="ingredient">
+                            <label for="mozzarella">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1/2 cup mozzarella</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="checkbox-wrapper-26">
+                            <input type="checkbox" id="dry-yeast" class="ingredient">
+                            <label for="dry-yeast">
+                                <div class="tick_mark"></div>
+                            </label>
+                        </div>
+                        <span>1 tablespoon dry yeast</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <section class="recipe-section">
+            <h2>Part 1: How to Make Pizza Dough</h2>
+            
+            <!-- Kneading methods listed with bullet points -->
+            <ul class="kneading-methods">
+                <li>Hand knead – 5 minutes</li>
+                <li>Standmixer – 3 minutes</li>
+                <li>Food processor – 40 seconds</li>
+            </ul>
+            
+            <!-- Image for dough preparation -->
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="dough.jpg" alt="Dough preparation" class="dough-image">
+                    </div>
+                    <div class="flip-box-back">
+                        <img src="kneading.jpg" alt="Kneading dough" class="kneading-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Instructions with number icons -->
+            <ul class="instructions">
+                <li><span class="number-icon">1</span> Mix flour, yeast, salt, and sugar, then mix in water and oil;</li>
+                <li><span class="number-icon">2</span> It will come together into a rough dough that leaves the bowl pretty clean;</li>
+                <li><span class="number-icon">3</span> Scrape out onto a floured work surface and bring it together into a ball;</li>
+                <li><span class="number-icon">4</span> Knead for 5 minutes using your hand or 3 minutes in a stand mixer (see next section for food processor).</li>
+            </ul>
+        </section>
+        <section class="recipe-section">
+            <h2>Part 2: The Sauce</h2>
+        
+            <ul class="sauce-methods">
+                <li><span class="number-icon">1</span> Cooked down pizza sauce using canned tomato, simmered to cook out water and thicken, then cooled prior to using.</li>
+                <li><span class="number-icon">2</span> Almost-instant pizza sauce made using tomato paste. I use this one the most because there’s a slight tang that cuts through the richness of the toppings, with salt and sugar added for balance. Plus, it takes seconds to make!</li>
+                <li><span class="number-icon">3</span> An “in-between” pizza sauce that gains freshness from passata, a hit of tomato paste for some intensity, but without the hassle of any cooking.</li>
+                <div class="image-container">
+                    <img src="pizza-sauce.jpg" alt="Pizza Sauce" class="pizza-sauce">
+                  </div>
+            </ul>
+        </section>
+        <section>
+            <section class="recipe-section">
+                <h2>Part 3: The Topping</h2>
+
+            <ul class="toppings-methods">
+                <li><span class="number-icon">1</span>You can top pizzas with anything your heart desires, but the key thing to remember is this: LESS IS MORE!</li>
+                <li><span class="number-icon">2</span> Pizza bases like this are not built for fully loading with toppings. It weighs down the dough, prevents the crust from rising, the centre of the pizza ends up soggy and it will be sloppy when you pick it up.</li>
+            </ul>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <!-- Front side with the first image -->
+                    <div class="flip-box-front">
+                        <img src="Pizza-Toppings1.jpg" alt="Pizza Toppings 1" style="width:200%; height:100%;">
+                    </div>
+                    <!-- Back side with the second image -->
+                    <div class="flip-box-back">
+                        <img src="Pizza-Toppings.jpg" alt="Pizza Toppings 2" style="width:200%; height:100%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <section class="recipe-section">
+            <h2>Part 4: Baking</h2>
+            <ul class="baking-methods">
+                <li><span class="number-icon">1</span>Just stretch out the pizza bases per this recipe, and bake for just 2 minutes at 275°C/530°F (all oven types).</li>
+            </ul>
+            <div class="baking-image-container">
+                <img src="baking-pizza.jpg" alt="Baking Pizza" class="baking-image">
+            </div>
+        </section>
+            </section>
+    <section>
+        <section class="recipe-section">
+            <h2>Watch How to Make It</h2>
+        <p class="video-description">The recipe video to knead the dough by hand</p>
+        <div></div>
+        <div class="video-container">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/qvIscT37HKE?si=N_6iBzCuPZqw2Ykl" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>    
+        <div class="modal" id="modal">
+            <div class="modal-content">
+              <p class="message" id="modalMessage">Yay! We can cook now!</p>
+              <div class="btn-container">
+                <button class="btn" id="closeBtn">Yes</button>
+              </div>
+            </div>
+          </div>
+          <div class="feedback-section">
+            <h4>Feedback</h4>
+            <form id="feedbackForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="feedback" rows="3" placeholder="Your Feedback" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="feedback-message" style="display: none;">Submitted. Thank you!</p>
+        </div>
+        <div class="left-panel">
+            <div class="rate-us">
+            <h2>Rate Us 💗</h2>
+            </div>
+            <div class="star-rating">
+                <span class="fa fa-star" data-index="1"></span>
+                <span class="fa fa-star" data-index="2"></span>
+                <span class="fa fa-star" data-index="3"></span>
+                <span class="fa fa-star" data-index="4"></span>
+                <span class="fa fa-star" data-index="5"></span>
+            </div>
+            <div class="visitor-count">
+                <h3>Visitor Count</h3>
+                <p>Last Hour: <span id="last-hour">Loading...</span></p>
+                <p>Today: <span id="today">Loading...</span></p>
+                <p>Last Week: <span id="last-week">Loading...</span></p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <span>Share it on:</span>
+            <i class="fab fa-facebook" id="facebookBtn"></i>
+            <i class="fab fa-instagram" id="instagramBtn"></i>
+            <i class="fab fa-whatsapp" id="whatsappBtn"></i>
+        </div>
+    </div>
+    
+      
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    let controller = new ScrollMagic.Controller();
+
+    // Section 1 animation timeline
+    let t1 = gsap.timeline();
+    t1.from(".section_1_01", {duration: 4, y: -100, x: -150, ease: "power3.inOut"})
+      .from(".section_1_02", {duration: 4, y: -150, x: -250, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_03", {duration: 4, y: -80, x: -100, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_04", {duration: 4, y: -100, x: -150, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_05", {duration: 4, y: -80, x: -200, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_06", {duration: 4, y: -100, x: -350, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_07", {duration: 4, y: -50, x: -150, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_08", {duration: 4, y: 50, x: -350, ease: "power3.inOut"}, '-=4')
+      .from(".section_1_09", {duration: 4, y: 100, x: -200, ease: "power3.inOut"}, '-=4');
+
+    let scene = new ScrollMagic.Scene({
+        triggerElement: '.first-section',
+        duration: '100%',
+        triggerHook: 0,
+        offset: 300
+    })
+    .setTween(t1)
+    .setPin('.first-section')
+    .addTo(controller);
+
+    // Section 3 animation timeline
+    let t3 = gsap.timeline();
+    t3.to('.section_3_01', {duration: 4, y: -250, ease: "power3.inOut"})
+      .to('.section_3_02', {duration: 4, y: -200, ease: "power3.inOut"}, '-=4')
+      .to('.section_3_03', {duration: 4, y: -100, ease: "power3.inOut"}, '-=4')
+      .to('.section_3_04', {duration: 4, y: 0, ease: "power3.inOut"}, '-=4')
+      .to('.section_3_05', {duration: 4, y: 150, ease: "power3.inOut"}, '-=4')
+      .to('.section_3_06', {duration: 4, y: 250, ease: "power3.inOut"}, '-=4');
+
+    let scene3 = new ScrollMagic.Scene({
+        triggerElement: '.third-section',
+        duration: '100%',
+        triggerHook: 0,
+        offset: 200
+    })
+    .setTween(t3)
+    .setPin('.third-section')
+    .addTo(controller);
+});
+          const ingredients = document.querySelectorAll('.ingredient');
+          const modal = document.getElementById('modal');
+          const modalMessage = document.getElementById('modalMessage');
+          const closeButton = document.getElementById('closeBtn'); // Ensure the button ID matches
+      
+          ingredients.forEach(ingredient => {
+            ingredient.addEventListener('change', checkIngredients);
+          });
+      
+          function checkIngredients() {
+            const allChecked = Array.from(ingredients).every(ingredient => ingredient.checked);
+            const anyChecked = Array.from(ingredients).some(ingredient => ingredient.checked);
+      
+            if (allChecked) {
+              modalMessage.textContent = "Yay! We can cook now!";
+              showModal();
+            } else if (anyChecked) {
+              modalMessage.textContent = "Maybe we look at the recipe first?";
+              showModal();
+            }
+          }
+      
+          function showModal() {
+            modal.style.display = 'inline-flex'; // Ensure display type matches your layout
+          }
+      
+          function closeModal() {
+            modal.style.display = 'none';
+          }
+      
+          closeButton.addEventListener('click', closeModal); // Attach closeModal to button
+
+            function setCookie(name, value, days = 30) {  // Default to 30 days
+            let expires = "";
+            if (days) {
+            let date = new Date();
+             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+            setCookie('brintha', 'darkMode');
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
+
+            // Save user preference in local storage
+            localStorage.setItem('theme', 'darkMode');
+
+            // Retrieve and use user preference
+            let theme = localStorage.getItem('theme');
+            if (theme) {
+                console.log('User theme preference:', theme);
+            }
+
+        }
+        // Save temporary user data in session storage
+        sessionStorage.setItem('formData', JSON.stringify({ name: 'John Doe', email: 'john@example.com' }));
+
+        // Retrieve and use temporary user data
+        let formData = JSON.parse(sessionStorage.getItem('formData'));
+        if (formData) {
+            console.log('Form Data:', formData);
+        }
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('feedback-message').style.display = 'block';
+            document.getElementById('feedbackForm').reset();
+        });
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('feedback-message').style.display = 'block';
+            document.getElementById('feedbackForm').reset();
+        });
+
+
+        const pizzaRecipeSummary = `Part 1: The Dough
+    Ingredients: Flour, yeast, water, olive oil, sugar, salt.
+    Process: Mix the ingredients, knead the dough, let it rise, and roll it out to form the pizza base.
+
+    Part 2: The Sauce
+    Ingredients: Tomatoes, garlic, olive oil, salt, pepper, Italian herbs.
+    Process: Sauté garlic, add tomatoes, season, and simmer to thicken the sauce.
+
+    Part 3: The Toppings
+    Ingredients: Cheese, vegetables, meats, herbs.
+    Process: Spread sauce on the dough, add cheese, then layer the toppings.
+
+    Part 4: Baking
+    Process: Preheat the oven, bake the pizza until the crust is golden, and the cheese is bubbly.`;
+
+    const copyToClipboard = () => {
+        const textarea = document.createElement("textarea");
+        textarea.value = pizzaRecipeSummary;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        alert("Pizza Recipe Summary copied to clipboard!");
+    };
+
+    document.getElementById("facebookBtn").addEventListener("click", () => {
+        copyToClipboard();
+        const facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=YourRecipePageURL";
+        window.open(facebookUrl, "_blank");
+    });
+
+    document.getElementById("instagramBtn").addEventListener("click", copyToClipboard);
+    document.getElementById("whatsappBtn").addEventListener("click", () => {
+        copyToClipboard();
+        const whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(pizzaRecipeSummary);
+        window.open(whatsappUrl, "_blank");
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+    let selectedStars = -1;
+
+    document.querySelectorAll('.fa-star').forEach((star, index) => {
+        star.addEventListener('click', function() {
+            selectedStars = index;
+            updateStars(selectedStars);
+        });
+
+        star.addEventListener('mouseover', function() {
+            updateStars(index);
+        });
+
+        star.addEventListener('mouseout', function() {
+            updateStars(selectedStars);
+        });
+    });
+
+    function updateStars(index) {
+        document.querySelectorAll('.fa-star').forEach((star, i) => {
+            star.classList.toggle('checked', i <= index);
+        });
+    }
+});
+function getOrCreateVisitorId() {
+    let visitorId = getCookie('visitorId');
+    if (!visitorId) {
+        visitorId = generateUUID();
+        setCookie('visitorId', visitorId, 365); // Set the cookie to expire in 1 year
+    }
+    return visitorId;
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+}
+
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const now = new Date();
+    const visitorId = getOrCreateVisitorId();
+    
+    const hourKey = `visitor-hour-${visitorId}`;
+    const todayKey = `visitor-today-${visitorId}`;
+    const weekKey = `visitor-week-${visitorId}`;
+
+    function updateVisitorCount(key, timeFrame) {
+        let visits = JSON.parse(localStorage.getItem(key)) || [];
+        visits.push(now);
+        visits = visits.filter(date => now - new Date(date) <= timeFrame);
+        localStorage.setItem(key, JSON.stringify(visits));
+        return visits.length;
+    }
+
+    const lastHourVisitors = updateVisitorCount(hourKey, 60 * 60 * 1000); // 1 hour
+    const todayVisitors = updateVisitorCount(todayKey, 24 * 60 * 60 * 1000); // 1 day
+    const lastWeekVisitors = updateVisitorCount(weekKey, 7 * 24 * 60 * 60 * 1000); // 1 week
+
+    document.getElementById('last-hour').textContent = lastHourVisitors;
+    document.getElementById('today').textContent = todayVisitors;
+    document.getElementById('last-week').textContent = lastWeekVisitors;
+});
+
+    </script>
+        
+</body>
+</html>
